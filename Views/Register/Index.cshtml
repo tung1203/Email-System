@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="text-center">
+     @if(ViewBag.err == true){
+            <div class="err">Tài khoản đã tồn tại</div>
+        }
+     @if(ViewBag.wrongRepassWord == true){
+            <div class="err">Mật khẩu nhập lại phải trùng nhau</div>
+        }
+    <form action="/Register/DoRegister" method="POST" class="form-center">
+   
+        <label id="username" class="label-register">Username</label>
+        
+        <input name="username" id="username" type="text">
+        <br/>
+        <label for="password" class="label-register">Password</label>
+        <input name="password" id="password" type="password">
+        <br/>
+        
+        <label for="reEnter" class="label-register">Re-Enter Password</label>
+        
+        <input name="reEnter" id="reEnter" type="password" oninput="checkRePassword()">
+        <p class="err-re-enter" >Mật khẩu không trùng</p>
+        <br/>
+        <button class="btn btn-primary register-btn" onclick="">Register</button>
+        
+    </form>
+</div>
+

@@ -1,0 +1,55 @@
+@{
+ViewData["Title"] = "Home page";
+}
+@if(ViewBag.user != null){
+<div class="text-center">
+    <h1 class="display-4">Welcome @ViewBag.user.UserName</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="/">Inbox</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/SentEmail">Sent</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/Compose">Compose</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul class="list-group">
+                @foreach(var email in ViewBag.ListEmails){
+
+                <li class="list-group-item">
+                    <a class="row-email" href="/SentEmail/ViewEmailSent?idEmail=@email.EmailVm.EmailId">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-2">
+                                    <b class="text-dark">To: @email.UserVm.UserName</b>
+                                </div>
+                                <div class="col-8">
+                                    <b>@email.EmailVm.EmailTitle</b>
+                                    <span>@email.EmailVm.EmailContent</span>
+                                </div>
+                                  <div class="col-1">
+                                    <button class="btn btn-danger" href="/Home/DeleteEmail?idEmail=@email.EmailVm.EmailId">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                  
+                </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+}

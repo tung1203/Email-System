@@ -1,0 +1,27 @@
+.form-center{
+  width: 400px;
+  margin: auto;
+  text-align: center;
+}
+.err{
+  color:red;
+}
+.err-re-enter {
+  display: none;
+  color: red;
+  margin: 0;
+  /* display: inline-block; */
+}
+
+.label {
+  width: 80px;
+}
+.label-register{
+  width: 150px;
+}
+.border-red{
+  border: 1px solid red;
+}
+.form-group{
+  margin: 0;
+}

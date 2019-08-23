@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "ViewEmailSent";
+}
+
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="/">Inbox</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/SentEmail">Sent</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/Compose">Compose</a>
+                    </li>
+                  </ul>
+            </div>
+            <div class="col">
+                <h1>@ViewBag.email.emailTitle</h1>
+                <p>@ViewBag.email.emailContent</p>
+            </div>
+        </div>
+    </div>
+    
+
+
+

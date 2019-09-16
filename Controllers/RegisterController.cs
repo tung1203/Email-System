@@ -51,13 +51,13 @@ namespace LoginSystem.Controllers
             {
 
                 var user = new User(username, password);
-                var newUser = dbContext.User.FirstOrDefault(acc => acc.UserName == username);
+                var newUser = dbContext.User.FirstOrDefault(acc => acc.userName == username);
                 if (newUser == null)
                 {
                     var user1 = new User(username, password);
                     using (MD5 md5Hash = MD5.Create())
                     {
-                        user1.UserPassword = GetMd5Hash(md5Hash, user1.UserPassword);
+                        user1.userPassword = GetMd5Hash(md5Hash, user1.userPassword);
                     }
                     dbContext.User.Add(user1);
                     dbContext.SaveChanges();

@@ -32,7 +32,7 @@ listName.addEventListener('keydown', (e, v) => {
 
         wrapCompose.insertBefore(userNameHtml, wrapCompose.childNodes[NameReceiver.length + 1]);
         listName.value = '';
-        console.log(NameReceiver.length + 1);
+        console.log(NameReceiver);
         e.preventDefault();
     } else if (e.keyCode == 8) {
         wrapCompose.removeChild(wrapCompose.childNodes[NameReceiver.length]);
@@ -42,26 +42,22 @@ listName.addEventListener('keydown', (e) => {
     if (e.keyCode == 9) {
         e.preventDefault();
     }
+
 })
 var btnSendEmail = document.getElementById('sendEmail');
 btnSendEmail.addEventListener('click', () => {
-    var xhttp = new XMLHttpRequest();
-    // xhttp.onreadystatechange = function () {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //         document.getElementById("demo").innerHTML = this.responseText;
-    //     }
-    // };
-    // alert(1);
+
+
     var listNameUser = '';
     for (let i = 0; i < NameReceiver.length; i++) {
 
         listNameUser += NameReceiver[i].innerText + ',';
 
     }
-    // xhttp.open("POST", "/Compose/ReceiveEmail", true);
-    // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // alert(`userName=${listNameUser}`);
-    // console.log(`userName=${listNameUser}`);
-    // xhttp.send(`userName=${listNameUser}`);
-    document.getElementById('userName').value = listNameUser;
+
+    document.getElementById('reciverName').value = listNameUser.substring(0, listNameUser.length - 1);
+
+
+
+
 })

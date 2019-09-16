@@ -3,18 +3,7 @@
 }
     <div class="container">
         <div class="row">
-            <div class="col-3">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                         <a href="/">Inbox</a></li>
-                    <li class="list-group-item">
-                        <a href="/SentEmail">Sent</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/Compose">Compose</a>
-                    </li>
-                  </ul>
-            </div>
+            <partial name="/Views/Partial/_Header.cshtml" />
             <div class="col">
                 <form action="/Compose/ReceiveEmail" method="POST">
 
@@ -26,7 +15,8 @@
                         <span class="nameReceiver">thach</span>
                         <span class="nameReceiver">thach</span> -->
                         <textarea placeholder="Tên người nhận" class="form-control js-formatInputName"></textarea>
-                        <input id="userName" name="userName">
+                        <input id="reciverName" name="reciverName">
+
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="title" name="titleEmail">

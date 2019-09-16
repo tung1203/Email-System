@@ -7,34 +7,22 @@ ViewData["Title"] = "SentEmail";
 
 <div class="container">
     <div class="row">
-        <div class="col-3">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="/">Inbox</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="/SentEmail">Sent</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="/Compose">Compose</a>
-                </li>
-            </ul>
-        </div>
+       <partial name="/Views/Partial/_Header.cshtml" />
 
         <div class="col">
             <ul class="list-group">
 
                 @foreach(var email in ViewBag.ListEmails){
                 <li class="list-group-item">
-                    <a class="row-email"  href="/SentEmail/ViewEmailSent?idEmail=@email.EmailVm.EmailId">
+                    <a class="row-email"  href="/SentEmail/ViewEmailSent?idEmail=email.EmailVm.EmailId">
                         <div class="container">
                             <div class="row">
                                 <div class="col-2">
-                                    <b class="text-dark">To: @email.UserVm.UserName</b>
+                                     <b class="text-dark">To: UserName</b>
                                 </div>
                                 <div class="col-8">
-                                    <b>@email.EmailVm.EmailTitle</b>
-                                    <span>@email.EmailVm.EmailContent</span>
+                                    <b>Title: @email.messageTitle</b>
+                                    <span>Content: @email.messageContent</span>
                                 </div>
                                 <div class="col-1">
                                     <button class="btn btn-danger">

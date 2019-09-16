@@ -2898,7 +2898,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": "\n            <summary>\n            Specifies the path to the JavaScript module containing prerendering code.\n            </summary>\n        ",
+            "Documentation": null,
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "ModuleName"
@@ -2968,6 +2968,11 @@
     {
       "FilePath": "Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Partial\\_Header.cshtml",
+      "TargetPath": "Views\\Partial\\_Header.cshtml",
       "FileKind": "mvc"
     },
     {

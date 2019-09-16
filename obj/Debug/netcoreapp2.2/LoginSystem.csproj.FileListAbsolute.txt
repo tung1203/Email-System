@@ -32,3 +32,4 @@ C:\Users\tung1\OneDrive\Desktop\LoginSystem\obj\Debug\netcoreapp2.2\Razor\Views\
 C:\Users\tung1\OneDrive\Desktop\LoginSystem\obj\Debug\netcoreapp2.2\Razor\Views\Compose\index.g.cshtml.cs
 C:\Users\tung1\OneDrive\Desktop\LoginSystem\obj\Debug\netcoreapp2.2\Razor\Views\SentEmail\Index.g.cshtml.cs
 C:\Users\tung1\OneDrive\Desktop\LoginSystem\obj\Debug\netcoreapp2.2\Razor\Views\SentEmail\ViewEmailSent.g.cshtml.cs
+C:\Users\tung1\OneDrive\Desktop\LoginSystem\obj\Debug\netcoreapp2.2\Razor\Views\Partial\_Header.g.cshtml.cs

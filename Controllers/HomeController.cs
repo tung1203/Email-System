@@ -32,22 +32,23 @@ namespace LoginSystem.Controllers
             // {
             //     return Redirect("/Home/Login");
             // }
-            User userLoged = dbContext.User.FirstOrDefault(user => user.UserId == userId);
+            User userLoged = dbContext.User.FirstOrDefault(user => user.userId == userId);
             ViewBag.user = userLoged;
 
-            var emailQuery = from de in dbContext.DetailEmail
-                             join e in dbContext.Email
-                             on de.EmailId equals e.EmailId
-                             join u in dbContext.User
-                             on de.IdRecevier equals u.UserId
-                             where de.IdRecevier == userLoged.UserId
-                             select new EmailView
-                             {
-                                 EmailVm = e,
-                                 UserVm = u
-                             };
+            // var emailQuery = from de in dbContext.DetailEmail
+            //                  join e in dbContext.Email
+            //                  on de.EmailId equals e.EmailId
+            //                  join u in dbContext.User
+            //                  on de.IdRecevier equals u.UserId
+            //                  where de.IdRecevier == userLoged.UserId
+            //                  select new EmailView
+            //                  {
+            //                      EmailVm = e,
+            //                      UserVm = u
+            //                  };
 
-            ViewBag.ListEmails = emailQuery.ToList();
+            // ViewBag.ListEmails = emailQuery.ToList();
+            
             return View();
         }
 
@@ -64,30 +65,30 @@ namespace LoginSystem.Controllers
             }
             return View();
         }
-        public IActionResult DeleteEmail(int idEmail)
-        {
-            var email = dbContext.Email.FirstOrDefault(x => x.EmailId == idEmail);
-            if (email != null)
-            {
-                dbContext.Email.Remove(email);
-                dbContext.SaveChanges();
-                ViewBag.delSucess = true;
-            }
-            return Redirect("/");
-        }
+        // public IActionResult DeleteEmail(int idEmail)
+        // {
+        //     var email = dbContext.Email.FirstOrDefault(x => x.EmailId == idEmail);
+        //     if (email != null)
+        //     {
+        //         dbContext.Email.Remove(email);
+        //         dbContext.SaveChanges();
+        //         ViewBag.delSucess = true;
+        //     }
+        //     return Redirect("/");
+        // }
         [HttpPost]
         public IActionResult DoLogin(string username, string password)
         {
             var user = new User(username, password);
             using (MD5 md5Hash = MD5.Create())
             {
-                user = dbContext.User.FirstOrDefault(acc => acc.UserName == username && VerifyMd5Hash(md5Hash, password, acc.UserPassword));
+                user = dbContext.User.FirstOrDefault(acc => acc.userName == username && VerifyMd5Hash(md5Hash, password, acc.userPassword));
             }
             if (user == null)
             {
                 return Redirect("/Home/Login?err=true");
             }
-            HttpContext.Session.SetInt32("userId", user.UserId);
+            HttpContext.Session.SetInt32("userId", user.userId);
             return Redirect("/");
         }
         public IActionResult Logout()
